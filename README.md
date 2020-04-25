@@ -12,7 +12,7 @@ I use [IntelliJ IDEA CE](https://www.jetbrains.com/idea/). Of course you're free
 - [ ] [Introduction to Algorithms](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844)
 - [ ] [Coursera's Algorithms (2 parts)](https://www.coursera.org/learn/algorithms-part1)
 - [ ] [Khan Academy's Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms)
-- [ ] [GeeksgorGeeks](https://www.geeksforgeeks.org/)
+- [ ] [GeeksforGeeks](https://www.geeksforgeeks.org/)
 
 ### 🛡 License
 <details>
