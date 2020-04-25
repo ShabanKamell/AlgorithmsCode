@@ -1,3 +1,4 @@
+import sort.HeapSort;
 import sort.SelectionSort;
 import util.Testable;
 import sort.InsertionSort;
@@ -11,6 +12,7 @@ public class Main {
         List<Testable> list = new ArrayList<>();
         list.add(new InsertionSort());
         list.add(new SelectionSort());
+        list.add(new HeapSort());
         return list;
     }
 
