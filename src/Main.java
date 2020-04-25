@@ -1,3 +1,4 @@
+import sort.SelectionSort;
 import util.Testable;
 import sort.InsertionSort;
 
@@ -9,11 +10,19 @@ public class Main {
     private static List<Testable> algorithms() {
         List<Testable> list = new ArrayList<>();
         list.add(new InsertionSort());
+        list.add(new SelectionSort());
         return list;
     }
 
     public static void main(String[] args) {
-        algorithms().forEach(Testable::test);
+        algorithms().forEach(item -> {
+            String name = item.getClass().getSimpleName();
+            System.out.println();
+            System.out.println(">>> " + name);
+            item.test();
+            System.out.println("<<< " + name);
+            System.out.println();
+        });
     }
 
 }
