@@ -4,7 +4,7 @@ import util.ArrayHelper;
 import util.Testable;
 
 /**
- * Best: O(n) Average, Worst: O(n2)
+ * Best, Average, Worst: O(n log n)
  */
 public class HeapSort implements Testable {
 
@@ -36,7 +36,7 @@ public class HeapSort implements Testable {
 
     // To heapify a subtree rooted with node i which is
     // an index in arr[]. n is size of heap
-    void heapify(int[] arr, int n, int i) {
+   private void heapify(int[] arr, int n, int i) {
         int largest = i; // Initialize largest as root
         int l = 2*i + 1; // left = 2*i + 1
         int r = 2*i + 2; // right = 2*i + 2
