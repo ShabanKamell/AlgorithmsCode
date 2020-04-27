@@ -1,8 +1,5 @@
-import sort.HeapSort;
-import sort.QuickSort;
-import sort.SelectionSort;
+import sort.*;
 import util.Testable;
-import sort.InsertionSort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +12,7 @@ public class Main {
         list.add(new SelectionSort());
         list.add(new HeapSort());
         list.add(new QuickSort());
+        list.add(new MergeSort());
         return list;
     }
 
