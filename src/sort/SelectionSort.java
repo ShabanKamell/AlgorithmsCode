@@ -3,6 +3,9 @@ package sort;
 import util.ArrayHelper;
 import util.Testable;
 
+/**
+ * Best, Average, Worst: O(n2)
+ */
 public class SelectionSort implements Testable {
 
     @Override
