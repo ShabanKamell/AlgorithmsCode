@@ -1,4 +1,6 @@
 import search.BinarySearch;
+import search.bst.AvlTree;
+import search.bst.BinarySearchTree;
 import search.LinearSearch;
 import sort.*;
 import util.Testable;
@@ -22,6 +24,8 @@ public class Main {
         List<Testable> list = new ArrayList<>();
         list.add(new LinearSearch());
         list.add(new BinarySearch());
+        list.add(new BinarySearchTree());
+        list.add(new AvlTree());
         return list;
     }
 
