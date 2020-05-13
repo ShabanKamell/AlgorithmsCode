@@ -1,3 +1,4 @@
+import graph.DepthFirstSearch;
 import search.BinarySearch;
 import search.bst.AvlTree;
 import search.bst.BinarySearchTree;
@@ -29,15 +30,22 @@ public class Main {
         return list;
     }
 
+    private static List<Testable> graphAlgorithms() {
+        List<Testable> list = new ArrayList<>();
+        list.add(new DepthFirstSearch());
+        return list;
+    }
+
     private static List<Testable> algorithms() {
         List<Testable> list = new ArrayList<>();
         list.addAll(sortAlgorithms());
         list.addAll(searchAlgorithms());
+        list.addAll(graphAlgorithms());
         return list;
     }
 
-        public static void main(String[] args) {
-            algorithms().forEach(item -> {
+    public static void main(String[] args) {
+        algorithms().forEach(item -> {
             String name = item.getClass().getSimpleName();
             System.out.println();
             System.out.println(">>> " + name);
