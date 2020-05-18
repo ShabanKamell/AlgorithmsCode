@@ -1,3 +1,4 @@
+import graph.BreadthFirstSearch;
 import graph.DepthFirstSearch;
 import search.BinarySearch;
 import search.bst.AvlTree;
@@ -33,6 +34,7 @@ public class Main {
     private static List<Testable> graphAlgorithms() {
         List<Testable> list = new ArrayList<>();
         list.add(new DepthFirstSearch());
+        list.add(new BreadthFirstSearch());
         return list;
     }
 
