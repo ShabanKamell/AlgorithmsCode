@@ -12,6 +12,17 @@ import java.util.List;
 
 public class Main {
 
+    public static void main(String[] args) {
+        algorithms().forEach(item -> {
+            String name = item.getClass().getSimpleName();
+            System.out.println();
+            System.out.println(">>> " + name);
+            item.test();
+            System.out.println("<<< " + name);
+            System.out.println();
+        });
+    }
+
     private static List<Testable> sortAlgorithms() {
         List<Testable> list = new ArrayList<>();
         list.add(new InsertionSort());
@@ -44,17 +55,6 @@ public class Main {
         list.addAll(searchAlgorithms());
         list.addAll(graphAlgorithms());
         return list;
-    }
-
-    public static void main(String[] args) {
-        algorithms().forEach(item -> {
-            String name = item.getClass().getSimpleName();
-            System.out.println();
-            System.out.println(">>> " + name);
-            item.test();
-            System.out.println("<<< " + name);
-            System.out.println();
-        });
     }
 
 }
