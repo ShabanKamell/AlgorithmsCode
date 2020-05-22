@@ -46,6 +46,9 @@ import java.util.NoSuchElementException;
  *  @author Kevin Wayne
  *
  *  @param <Item> the generic type of an item in this stack
+ *
+ *  @author Robert Sedgewick
+ *  @author Kevin Wayne
  */
 public class Stack<Item> implements Iterable<Item> {
     private Node<Item> first;     // top of stack

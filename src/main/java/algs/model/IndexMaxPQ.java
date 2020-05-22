@@ -35,11 +35,10 @@ import java.util.NoSuchElementException;
  *  For additional documentation, see
  *  <a href="https://algs4.cs.princeton.edu/24pq">Section 2.4</a> of
  *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ *  @param <Key> the generic type of key on this priority queue
  *
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
- *
- *  @param <Key> the generic type of key on this priority queue
  */
 public class IndexMaxPQ<Key extends Comparable<Key>> implements Iterable<Integer> {
     private int maxN;        // maximum number of elements on PQ

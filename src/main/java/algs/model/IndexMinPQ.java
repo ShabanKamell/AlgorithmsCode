@@ -40,6 +40,8 @@ import java.util.NoSuchElementException;
  *  @author Kevin Wayne
  *
  *  @param <Key> the generic type of key on this priority queue
+ *
+ * @author https://github.com/kevin-wayne/algs4
  */
 public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer> {
     private int maxN;        // maximum number of elements on PQ
@@ -344,7 +346,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         // insert a bunch of strings
         String[] strings = { "it", "was", "the", "best", "of", "times", "it", "was", "the", "worst" };
 
-        IndexMinPQ<String> pq = new IndexMinPQ<String>(strings.length);
+        IndexMinPQ<String> pq = new IndexMinPQ<>(strings.length);
         for (int i = 0; i < strings.length; i++) {
             pq.insert(i, strings[i]);
         }
