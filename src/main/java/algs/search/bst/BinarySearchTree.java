@@ -1,5 +1,6 @@
 package algs.search.bst;
 
+import algs.model.Node;
 import algs.util.Testable;
 
 /**
@@ -8,27 +9,6 @@ import algs.util.Testable;
 public class BinarySearchTree implements Testable {
     // Root of BST
     private Node root;
-
-    @Override
-    public void test() {
-        createTree();
-
-        if (isBST())
-            System.out.println("IS BST");
-        else
-            System.out.println("Not a BST");
-
-        Node result = search(root, 60);
-
-        if (result == null)
-            System.out.println("Element not present");
-        else
-            System.out.println("Element found: " + result.key);
-
-        testDelete();
-
-        System.out.println();
-    }
 
     /**
       Create the following BST
@@ -214,4 +194,26 @@ public class BinarySearchTree implements Testable {
 
         return isBST(node.right, node);
     }
+
+    @Override
+    public void test() {
+        createTree();
+
+        if (isBST())
+            System.out.println("IS BST");
+        else
+            System.out.println("Not a BST");
+
+        Node result = search(root, 60);
+
+        if (result == null)
+            System.out.println("Element not present");
+        else
+            System.out.println("Element found: " + result.key);
+
+        testDelete();
+
+        System.out.println();
+    }
+
 }

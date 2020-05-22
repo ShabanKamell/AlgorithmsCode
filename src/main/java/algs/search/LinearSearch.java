@@ -7,6 +7,16 @@ import algs.util.Testable;
  */
 public class LinearSearch implements Testable {
 
+    static int search(int[] arr, int x) {
+        int n = arr.length;
+        for(int i = 0; i < n; i++)
+        {
+            if(arr[i] == x)
+                return i;
+        }
+        return -1;
+    }
+
     @Override
     public void test() {
         int[] arr = { 12, 11, 13, 5, 6 };
@@ -19,16 +29,4 @@ public class LinearSearch implements Testable {
         else
             System.out.println("Element is present at index " + result);
     }
-
-    static int search(int[] arr, int x)
-    {
-        int n = arr.length;
-        for(int i = 0; i < n; i++)
-        {
-            if(arr[i] == x)
-                return i;
-        }
-        return -1;
-    }
-
 }

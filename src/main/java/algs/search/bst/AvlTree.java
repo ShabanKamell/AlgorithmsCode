@@ -1,5 +1,6 @@
 package algs.search.bst;
 
+import algs.model.Node;
 import algs.util.Testable;
 
 /**
@@ -8,41 +9,6 @@ import algs.util.Testable;
 public class AvlTree implements Testable {
     // Root of BST
     private Node root;
-
-    @Override
-    public void test() {
-        /* Constructing tree given in the above figure */
-        root = insert(root, 10);
-        root = insert(root, 50);
-        root = insert(root, 40);
-        root = insert(root, 25);
-        root = insert(root, 30);
-        root = insert(root, 20);
-
-        /* The constructed AVL Tree would be
-             30
-            /  \
-          20   40
-         /  \     \
-        10  25    50
-        */
-        System.out.println("Preorder traversal of constructed tree is: ");
-
-        preOrder(root);
-
-        System.out.println();
-
-        System.out.println("inorder traversal of constructed tree is: ");
-        inorder(root);
-
-        System.out.println();
-
-        delete(20);
-        delete(40);
-        System.out.println("Tree after deleting 20 & 40: ");
-        inorder(root);
-        System.out.println();
-    }
 
     public Node search(int key) {
         Node current = root;
@@ -213,5 +179,40 @@ public class AvlTree implements Testable {
             System.out.print(root.key + " ");
             inorder(root.right);
         }
+    }
+
+    @Override
+    public void test() {
+        /* Constructing tree given in the above figure */
+        root = insert(root, 10);
+        root = insert(root, 50);
+        root = insert(root, 40);
+        root = insert(root, 25);
+        root = insert(root, 30);
+        root = insert(root, 20);
+
+        /* The constructed AVL Tree would be
+             30
+            /  \
+          20   40
+         /  \     \
+        10  25    50
+        */
+        System.out.println("Preorder traversal of constructed tree is: ");
+
+        preOrder(root);
+
+        System.out.println();
+
+        System.out.println("inorder traversal of constructed tree is: ");
+        inorder(root);
+
+        System.out.println();
+
+        delete(20);
+        delete(40);
+        System.out.println("Tree after deleting 20 & 40: ");
+        inorder(root);
+        System.out.println();
     }
 }

@@ -11,23 +11,6 @@ public class DepthFirstSearch implements Testable {
 
     private final Map<Integer, List<Integer>> adjVertices = new HashMap<>();
 
-    @Override
-    public void test() {
-        for (int i = 0 ; i < 4 ; i++)
-            addVertex(i);
-
-        addEdge(0, 1);
-        addEdge(0, 2);
-        addEdge(1, 2);
-        addEdge(2, 0);
-        addEdge(2, 3);
-        addEdge(3, 3);
-
-        dfs(2);
-
-        System.out.println();
-    }
-
     public void addVertex(int vertex) {
         adjVertices.putIfAbsent(vertex, new ArrayList<>());
     }
@@ -83,6 +66,23 @@ public class DepthFirstSearch implements Testable {
 
     private void visit(int value) {
         System.out.print(" " + value);
+    }
+
+    @Override
+    public void test() {
+        for (int i = 0 ; i < 4 ; i++)
+            addVertex(i);
+
+        addEdge(0, 1);
+        addEdge(0, 2);
+        addEdge(1, 2);
+        addEdge(2, 0);
+        addEdge(2, 3);
+        addEdge(3, 3);
+
+        dfs(2);
+
+        System.out.println();
     }
 
 }

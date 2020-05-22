@@ -8,16 +8,6 @@ import algs.util.Testable;
  */
 public class MergeSort implements Testable {
 
-    @Override
-    public void test() {
-        int[] arr = { 12, 11, 13, 5, 6 };
-
-        int n = arr.length;
-        sort(arr, 0, n - 1);
-
-        ArrayHelper.print(arr);
-    }
-
     /**
      * algs.Main function that sorts arr[l..r] using
      * merge()
@@ -90,4 +80,15 @@ public class MergeSort implements Testable {
             k++;
         }
     }
+
+    @Override
+    public void test() {
+        int[] arr = { 12, 11, 13, 5, 6 };
+
+        int n = arr.length;
+        sort(arr, 0, n - 1);
+
+        ArrayHelper.print(arr);
+    }
+
 }

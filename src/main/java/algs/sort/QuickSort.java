@@ -8,16 +8,6 @@ import algs.util.Testable;
  */
 public class QuickSort implements Testable {
 
-    @Override
-    public void test() {
-        int[] arr = { 12, 11, 13, 5, 6 };
-
-        int n = arr.length;
-        sort(arr, 0, n - 1);
-
-        ArrayHelper.print(arr);
-    }
-
     /**
      * The main function that implements QuickSort
      * arr[] --> Array to be sorted,
@@ -68,4 +58,15 @@ public class QuickSort implements Testable {
 
         return i + 1;
     }
+
+    @Override
+    public void test() {
+        int[] arr = { 12, 11, 13, 5, 6 };
+
+        int n = arr.length;
+        sort(arr, 0, n - 1);
+
+        ArrayHelper.print(arr);
+    }
+
 }

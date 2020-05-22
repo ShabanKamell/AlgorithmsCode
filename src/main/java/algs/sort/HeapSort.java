@@ -8,13 +8,6 @@ import algs.util.Testable;
  */
 public class HeapSort implements Testable {
 
-    @Override
-    public void test() {
-        int[] arr = { 12, 11, 13, 5, 6 };
-        sort(arr);
-        ArrayHelper.print(arr);
-    }
-
     public void sort(int[] arr) {
         int n = arr.length;
 
@@ -58,6 +51,13 @@ public class HeapSort implements Testable {
             // Recursively heapify the affected sub-tree
             heapify(arr, n, largest);
         }
+    }
+
+    @Override
+    public void test() {
+        int[] arr = { 12, 11, 13, 5, 6 };
+        sort(arr);
+        ArrayHelper.print(arr);
     }
 
 }

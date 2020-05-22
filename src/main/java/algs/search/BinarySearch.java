@@ -7,20 +7,6 @@ import algs.util.Testable;
  */
 public class BinarySearch implements Testable {
 
-    @Override
-    public void test() {
-        int[] arr = { 5, 6, 11, 12, 13 };
-
-        int n = arr.length;
-        int x = 6;
-
-        int result = search(arr, 0, n - 1, x);
-        if (result == -1)
-            System.out.println("Element not present");
-        else
-            System.out.println("Element found at index " + result);
-    }
-
     /**
      *  Returns index of x if it is present in arr[l..r], else return -1
      */
@@ -46,6 +32,20 @@ public class BinarySearch implements Testable {
         // We reach here when element is not present
         // in array
         return -1;
+    }
+
+    @Override
+    public void test() {
+        int[] arr = { 5, 6, 11, 12, 13 };
+
+        int n = arr.length;
+        int x = 6;
+
+        int result = search(arr, 0, n - 1, x);
+        if (result == -1)
+            System.out.println("Element not present");
+        else
+            System.out.println("Element found at index " + result);
     }
 
 }

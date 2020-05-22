@@ -8,13 +8,6 @@ import algs.util.Testable;
  */
 public class InsertionSort implements Testable {
 
-    @Override
-    public void test() {
-        int[] arr = { 12, 11, 13, 5, 6 };
-        sort(arr);
-        ArrayHelper.print(arr);
-    }
-
     /**
      * Function to algs.sort array using insertion algs.sort
      */
@@ -35,6 +28,13 @@ public class InsertionSort implements Testable {
 
             arr[j + 1] = value;
         }
+    }
+
+    @Override
+    public void test() {
+        int[] arr = { 12, 11, 13, 5, 6 };
+        sort(arr);
+        ArrayHelper.print(arr);
     }
 
 }

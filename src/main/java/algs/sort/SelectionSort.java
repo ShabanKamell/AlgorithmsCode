@@ -8,13 +8,6 @@ import algs.util.Testable;
  */
 public class SelectionSort implements Testable {
 
-    @Override
-    public void test() {
-        int[] arr = { 12, 11, 13, 5, 6 };
-        sort(arr);
-        ArrayHelper.print(arr);
-    }
-
     private void sort(int[] arr) {
         int n = arr.length;
 
@@ -31,6 +24,13 @@ public class SelectionSort implements Testable {
             arr[minIdx] = arr[i];
             arr[i] = temp;
         }
+    }
+
+    @Override
+    public void test() {
+        int[] arr = { 12, 11, 13, 5, 6 };
+        sort(arr);
+        ArrayHelper.print(arr);
     }
 
 }

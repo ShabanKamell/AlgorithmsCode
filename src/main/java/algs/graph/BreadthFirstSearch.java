@@ -20,20 +20,6 @@ public class BreadthFirstSearch implements Testable {
             adj[i] = new LinkedList<>();
     }
 
-    @Override
-    public void test() {
-        addEdge(0, 1);
-        addEdge(0, 2);
-        addEdge(1, 2);
-        addEdge(2, 0);
-        addEdge(2, 3);
-        addEdge(3, 3);
-
-        bfs(2);
-
-        System.out.println();
-    }
-
     public void addEdge(int src, int dest) {
         adj[src].add(dest);
     }
@@ -57,6 +43,20 @@ public class BreadthFirstSearch implements Testable {
                 }
             }
         }
+    }
+
+    @Override
+    public void test() {
+        addEdge(0, 1);
+        addEdge(0, 2);
+        addEdge(1, 2);
+        addEdge(2, 0);
+        addEdge(2, 3);
+        addEdge(3, 3);
+
+        bfs(2);
+
+        System.out.println();
     }
 
 }
