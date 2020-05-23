@@ -71,8 +71,8 @@ public class DijkstraSP implements Testable {
      * Computes a shortest-paths tree from the source vertex {@code s} to every other
      * vertex in the edge-weighted digraph {@code G}.
      *
-     * @param  G the edge-weighted digraph
-     * @param  s the source vertex
+     * @param G the edge-weighted digraph
+     * @param s the source vertex
      * @throws IllegalArgumentException if an edge weight is negative
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
      */
@@ -96,7 +96,7 @@ public class DijkstraSP implements Testable {
         distTo[s] = 0.0;
 
         // relax vertices in order of distance from s
-        pq = new IndexMinPQ<Double>(G.V());
+        pq = new IndexMinPQ<>(G.V());
         pq.insert(s, distTo[s]);
         while (!pq.isEmpty()) {
             int v = pq.delMin();
