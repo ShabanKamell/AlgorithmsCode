@@ -1,4 +1,4 @@
-package algs.model;
+package algs.util;
 
 /*************************************************************************
  *  Compilation:  javac In.java

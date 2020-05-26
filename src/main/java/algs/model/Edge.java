@@ -9,6 +9,8 @@
 
 package algs.model;
 
+import algs.util.StdOut;
+
 /**
  *  The {@code Edge} class represents a weighted edge in an 
  *  {@link EdgeWeightedGraph}. Each edge consists of two integers

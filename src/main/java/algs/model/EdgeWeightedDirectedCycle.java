@@ -11,6 +11,10 @@
 
 package algs.model;
 
+import algs.datastructure.Stack;
+import algs.util.StdOut;
+import algs.util.StdRandom;
+
 /**
  *  The {@code EdgeWeightedDirectedCycle} class represents a data type for 
  *  determining whether an edge-weighted digraph has a directed cycle.

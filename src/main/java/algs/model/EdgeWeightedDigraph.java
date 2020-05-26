@@ -12,6 +12,11 @@
 
 package algs.model;
 
+import algs.datastructure.Stack;
+import algs.util.In;
+import algs.util.StdOut;
+import algs.util.StdRandom;
+
 import java.util.NoSuchElementException;
 
 /**

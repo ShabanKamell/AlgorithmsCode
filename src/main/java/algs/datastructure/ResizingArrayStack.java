@@ -14,7 +14,10 @@
  *
  ******************************************************************************/
 
-package algs.model;
+package algs.datastructure;
+
+import algs.util.StdIn;
+import algs.util.StdOut;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

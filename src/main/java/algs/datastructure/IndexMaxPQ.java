@@ -7,7 +7,10 @@
  *
  ******************************************************************************/
 
-package algs.model;
+package algs.datastructure;
+
+import algs.util.StdOut;
+import algs.util.StdRandom;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

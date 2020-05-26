@@ -29,6 +29,11 @@
 
 package algs.model;
 
+import algs.datastructure.LinkedBag;
+import algs.datastructure.ResizingArrayBag;
+import algs.util.StdIn;
+import algs.util.StdOut;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 

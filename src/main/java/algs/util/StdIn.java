@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package algs.model;
+package algs.util;
 
 import java.util.*;
 import java.util.regex.Pattern;
