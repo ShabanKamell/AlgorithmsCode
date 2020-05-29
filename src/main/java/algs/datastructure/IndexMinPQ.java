@@ -42,21 +42,20 @@ import java.util.NoSuchElementException;
  *  @author Kevin Wayne
  *
  *  @param <Key> the generic type of key on this priority queue
- *
- * @author https://github.com/kevin-wayne/algs4
  */
+@SuppressWarnings("unchecked")
 public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer> {
-    private int maxN;        // maximum number of elements on PQ
-    private int n;           // number of elements on PQ
-    private int[] pq;        // binary heap using 1-based indexing
-    private int[] qp;        // inverse of pq - qp[pq[i]] = pq[qp[i]] = i
-    private Key[] keys;      // keys[i] = priority of i
+    private final int maxN;        // maximum number of elements on PQ
+    private int n;                 // number of elements on PQ
+    private final int[] pq;        // binary heap using 1-based indexing
+    private final int[] qp;        // inverse of pq - qp[pq[i]] = pq[qp[i]] = i
+    private final Key[] keys;      // keys[i] = priority of i
 
     /**
      * Initializes an empty indexed priority queue with indices between {@code 0}
      * and {@code maxN - 1}.
      * @param  maxN the keys on this priority queue are index from {@code 0}
-     *         {@code maxN - 1}
+     *         to {@code maxN - 1}
      * @throws IllegalArgumentException if {@code maxN < 0}
      */
     public IndexMinPQ(int maxN) {

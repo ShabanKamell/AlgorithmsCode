@@ -56,9 +56,6 @@ import java.util.NoSuchElementException;
  *  @author Kevin Wayne
  *
  *  @param <Item> the generic type of an item in this bag
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
  */
 public class Bag<Item> implements Iterable<Item> {
     private Node<Item> first;    // beginning of bag
@@ -103,10 +100,10 @@ public class Bag<Item> implements Iterable<Item> {
      * @param  item the item to add to this bag
      */
     public void add(Item item) {
-        Node<Item> oldfirst = first;
-        first = new Node<Item>();
+        Node<Item> oldFirst = first;
+        first = new Node<>();
         first.item = item;
-        first.next = oldfirst;
+        first.next = oldFirst;
         n++;
     }
 
@@ -145,7 +142,8 @@ public class Bag<Item> implements Iterable<Item> {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        Bag<String> bag = new Bag<String>();
+        Bag<String> bag = new Bag<>();
+
         while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
             bag.add(item);

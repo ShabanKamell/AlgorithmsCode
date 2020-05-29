@@ -65,8 +65,7 @@ public final class In
     /**
      * Create an input stream from standard input.
      */
-    public In()
-    {
+    public In() {
         scanner = new Scanner(new BufferedInputStream(System.in), charsetName);
         scanner.useLocale(usLocale);
     }
@@ -74,8 +73,7 @@ public final class In
     /**
      * Create an input stream from a socket.
      */
-    public In(java.net.Socket socket)
-    {
+    public In(java.net.Socket socket) {
         try
         {
             InputStream is = socket.getInputStream();
@@ -91,8 +89,7 @@ public final class In
     /**
      * Create an input stream from a URL.
      */
-    public In(URL url)
-    {
+    public In(URL url) {
         try
         {
             URLConnection site = url.openConnection();
@@ -109,15 +106,12 @@ public final class In
     /**
      * Create an input stream from a file.
      */
-    public In(File file)
-    {
-        try
-        {
+    public In(File file) {
+        try {
             scanner = new Scanner(file, charsetName);
             scanner.useLocale(usLocale);
         }
-        catch (IOException ioe)
-        {
+        catch (IOException ioe) {
             System.err.println("Could not open " + file);
         }
     }
@@ -125,10 +119,8 @@ public final class In
     /**
      * Create an input stream from a filename or web page name.
      */
-    public In(String s)
-    {
-        try
-        {
+    public In(String s) {
+        try {
             // first try to read file from local file system
             File file = new File(s);
             if (file.exists())
@@ -152,8 +144,7 @@ public final class In
             scanner = new Scanner(new BufferedInputStream(is), charsetName);
             scanner.useLocale(usLocale);
         }
-        catch (IOException ioe)
-        {
+        catch (IOException ioe) {
             System.err.println("Could not open " + s);
         }
     }
@@ -258,64 +249,56 @@ public final class In
     /**
      * Read and return the next string.
      */
-    public String readString()
-    {
+    public String readString() {
         return scanner.next();
     }
 
     /**
      * Read and return the next int.
      */
-    public int readInt()
-    {
+    public int readInt() {
         return scanner.nextInt();
     }
 
     /**
      * Read and return the next double.
      */
-    public double readDouble()
-    {
+    public double readDouble() {
         return scanner.nextDouble();
     }
 
     /**
      * Read and return the next float.
      */
-    public float readFloat()
-    {
+    public float readFloat() {
         return scanner.nextFloat();
     }
 
     /**
      * Read and return the next long.
      */
-    public long readLong()
-    {
+    public long readLong() {
         return scanner.nextLong();
     }
 
     /**
      * Read and return the next short.
      */
-    public short readShort()
-    {
+    public short readShort() {
         return scanner.nextShort();
     }
 
     /**
      * Read and return the next byte.
      */
-    public byte readByte()
-    {
+    public byte readByte() {
         return scanner.nextByte();
     }
 
     /**
      * Read and return the next boolean, allowing case-insensitive "true" or "1" for true, and "false" or "0" for false.
      */
-    public boolean readBoolean()
-    {
+    public boolean readBoolean() {
         String s = readString();
         if (s.equalsIgnoreCase("true"))
             return true;
@@ -331,8 +314,7 @@ public final class In
     /**
      * Read all strings until the end of input is reached, and return them.
      */
-    public String[] readAllStrings()
-    {
+    public String[] readAllStrings() {
         // we could use readAll.trim().split(), but that's not consistent
         // since trim() uses characters 0x00..0x20 as whitespace
         String[] tokens = WHITESPACE_PATTERN.split(readAll());
@@ -347,8 +329,7 @@ public final class In
     /**
      * Read all ints until the end of input is reached, and return them.
      */
-    public int[] readAllInts()
-    {
+    public int[] readAllInts() {
         String[] fields = readAllStrings();
         int[] vals = new int[fields.length];
         for (int i = 0; i < fields.length; i++)
@@ -359,8 +340,7 @@ public final class In
     /**
      * Read all doubles until the end of input is reached, and return them.
      */
-    public double[] readAllDoubles()
-    {
+    public double[] readAllDoubles() {
         String[] fields = readAllStrings();
         double[] vals = new double[fields.length];
         for (int i = 0; i < fields.length; i++)
@@ -373,8 +353,7 @@ public final class In
     /**
      * Close the input stream.
      */
-    public void close()
-    {
+    public void close() {
         scanner.close();
     }
 

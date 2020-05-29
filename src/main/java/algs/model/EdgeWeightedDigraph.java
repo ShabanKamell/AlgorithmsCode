@@ -49,13 +49,14 @@ import java.util.NoSuchElementException;
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
+@SuppressWarnings("unchecked")
 public class EdgeWeightedDigraph {
     private static final String NEWLINE = System.getProperty("line.separator");
 
     private final int V;                // number of vertices in this digraph
     private int E;                      // number of edges in this digraph
-    private Bag<DirectedEdge>[] adj;    // adj[v] = adjacency list for vertex v
-    private int[] indegree;             // indegree[v] = indegree of vertex v
+    private final Bag<DirectedEdge>[] adj;    // adj[v] = adjacency list for vertex v
+    private final int[] indegree;             // indegree[v] = indegree of vertex v
     
     /**
      * Initializes an empty edge-weighted digraph with {@code V} vertices and 0 edges.
@@ -68,9 +69,9 @@ public class EdgeWeightedDigraph {
         this.V = V;
         this.E = 0;
         this.indegree = new int[V];
-        adj = (Bag<DirectedEdge>[]) new Bag[V];
+        adj = new Bag[V];
         for (int v = 0; v < V; v++)
-            adj[v] = new Bag<DirectedEdge>();
+            adj[v] = new Bag<>();
     }
 
     /**
@@ -111,9 +112,9 @@ public class EdgeWeightedDigraph {
             this.V = in.readInt();
             if (V < 0) throw new IllegalArgumentException("number of vertices in a Digraph must be nonnegative");
             indegree = new int[V];
-            adj = (Bag<DirectedEdge>[]) new Bag[V];
+            adj = new Bag[V];
             for (int v = 0; v < V; v++) {
-                adj[v] = new Bag<DirectedEdge>();
+                adj[v] = new Bag<>();
             }
 
             int E = in.readInt();
@@ -242,7 +243,7 @@ public class EdgeWeightedDigraph {
      * @return all edges in this edge-weighted digraph, as an iterable
      */
     public Iterable<DirectedEdge> edges() {
-        Bag<DirectedEdge> list = new Bag<DirectedEdge>();
+        Bag<DirectedEdge> list = new Bag<>();
         for (int v = 0; v < V; v++) {
             for (DirectedEdge e : adj(v)) {
                 list.add(e);
@@ -259,11 +260,14 @@ public class EdgeWeightedDigraph {
      */
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append(V + " " + E + NEWLINE);
+        s.append(V)
+                .append(" ")
+                .append(E)
+                .append(NEWLINE);
         for (int v = 0; v < V; v++) {
-            s.append(v + ": ");
+            s.append(v).append(": ");
             for (DirectedEdge e : adj[v]) {
-                s.append(e + "  ");
+                s.append(e).append("  ");
             }
             s.append(NEWLINE);
         }
