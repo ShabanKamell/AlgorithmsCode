@@ -90,17 +90,20 @@ public class DijkstraSP implements Testable {
                 throw new IllegalArgumentException("edge " + e + " has negative weight");
         }
 
-        distTo = new double[G.V()];
-        edgeTo = new DirectedEdge[G.V()];
+        int V = G.V();
+
+        distTo = new double[V];
+        edgeTo = new DirectedEdge[V];
 
         validateVertex(s);
 
-        for (int v = 0; v < G.V(); v++)
+        for (int v = 0; v < V; v++)
             distTo[v] = Double.POSITIVE_INFINITY;
+
         distTo[s] = 0.0;
 
         // relax vertices in order of distance from s
-        pq = new IndexMinPQ<>(G.V());
+        pq = new IndexMinPQ<>(V);
         pq.insert(s, distTo[s]);
         while (!pq.isEmpty()) {
             int v = pq.delMin();
@@ -114,7 +117,8 @@ public class DijkstraSP implements Testable {
 
     // relax edge e and update pq if changed
     private void relax(DirectedEdge e) {
-        int v = e.from(), w = e.to();
+        int v = e.from();
+        int w = e.to();
         if (distTo[w] > distTo[v] + e.weight()) {
             distTo[w] = distTo[v] + e.weight();
             edgeTo[w] = e;
@@ -171,7 +175,6 @@ public class DijkstraSP implements Testable {
     // (i) for all edges e:            distTo[e.to()] <= distTo[e.from()] + e.weight()
     // (ii) for all edge e on the SPT: distTo[e.to()] == distTo[e.from()] + e.weight()
     private boolean check(EdgeWeightedDigraph G, int s) {
-
         // check that edge weights are nonnegative
         for (DirectedEdge e : G.edges()) {
             if (e.weight() < 0) {

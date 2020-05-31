@@ -145,7 +145,7 @@ public class EdgeWeightedDigraph {
             this.indegree[v] = G.indegree(v);
         for (int v = 0; v < G.V(); v++) {
             // reverse so that adjacency list is in same order as original
-            Stack<DirectedEdge> reverse = new Stack<DirectedEdge>();
+            Stack<DirectedEdge> reverse = new Stack<>();
             for (DirectedEdge e : G.adj[v]) {
                 reverse.push(e);
             }
