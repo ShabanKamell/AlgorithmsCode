@@ -170,7 +170,6 @@ public class DijkstraSP implements Testable {
         return path;
     }
 
-
     // check optimality conditions:
     // (i) for all edges e:            distTo[e.to()] <= distTo[e.from()] + e.weight()
     // (ii) for all edge e on the SPT: distTo[e.to()] == distTo[e.from()] + e.weight()
