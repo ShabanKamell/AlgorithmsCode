@@ -1,7 +1,7 @@
 package algs.sort;
 
-import algs.util.ArrayHelper;
-import algs.util.Testable;
+import algs.shared.util.ArrayHelper;
+import algs.shared.util.Testable;
 
 /**
  * Best, Average: O(n log n), Worst: O(n2)

@@ -7,9 +7,9 @@
  *
  ******************************************************************************/
 
-package algs.model;
+package algs.shared.model;
 
-import algs.util.StdOut;
+import algs.shared.util.StdOut;
 
 /**
  *  The {@code Edge} class represents a weighted edge in an 

@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package algs.util;
+package algs.shared.util;
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;

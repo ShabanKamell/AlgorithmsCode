@@ -1,4 +1,4 @@
-package algs.util;
+package algs.shared.util;
 
 /*************************************************************************
  *  Compilation:  javac In.java

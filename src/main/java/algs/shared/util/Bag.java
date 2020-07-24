@@ -1,9 +1,9 @@
-package algs.util;
+package algs.shared.util;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import algs.datastructure.LinkedBag;
-import algs.datastructure.ResizingArrayBag;
+import algs.shared.datastructure.LinkedBag;
+import algs.shared.datastructure.ResizingArrayBag;
 
 /**
  *  The {@code Bag} class represents a bag (or multiset) of

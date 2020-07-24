@@ -8,7 +8,7 @@ import algs.search.LinearSearch;
 import algs.search.bst.AvlTree;
 import algs.search.bst.BinarySearchTree;
 import algs.sort.*;
-import algs.util.Testable;
+import algs.shared.util.Testable;
 
 import java.util.ArrayList;
 import java.util.List;

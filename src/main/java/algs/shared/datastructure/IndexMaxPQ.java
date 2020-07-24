@@ -7,10 +7,10 @@
  *
  ******************************************************************************/
 
-package algs.datastructure;
+package algs.shared.datastructure;
 
-import algs.util.StdOut;
-import algs.util.StdRandom;
+import algs.shared.util.StdOut;
+import algs.shared.util.StdRandom;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

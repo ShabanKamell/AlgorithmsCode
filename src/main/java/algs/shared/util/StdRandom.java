@@ -45,7 +45,7 @@
  *
  ******************************************************************************/
 
-package algs.util;
+package algs.shared.util;
 
 import java.util.Random;
 

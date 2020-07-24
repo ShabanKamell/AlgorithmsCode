@@ -12,7 +12,7 @@
  *
  ******************************************************************************/
 
-package algs.model;
+package algs.shared.model;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;

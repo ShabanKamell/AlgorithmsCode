@@ -14,10 +14,10 @@
  *
  ******************************************************************************/
 
-package algs.datastructure;
+package algs.shared.datastructure;
 
-import algs.util.StdIn;
-import algs.util.StdOut;
+import algs.shared.util.StdIn;
+import algs.shared.util.StdOut;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -84,7 +84,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
         a = copy;
 
        // alternative implementation
-       // a = java.main.java.algs.util.Arrays.copyOf(a, capacity);
+       // a = java.main.java.algs.shared.util.Arrays.copyOf(a, capacity);
     }
 
 

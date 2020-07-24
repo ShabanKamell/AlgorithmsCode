@@ -27,11 +27,11 @@
  *
  ******************************************************************************/
 
-package algs.datastructure;
+package algs.shared.datastructure;
 
-import algs.model.Bag;
-import algs.util.StdIn;
-import algs.util.StdOut;
+import algs.shared.model.Bag;
+import algs.shared.util.StdIn;
+import algs.shared.util.StdOut;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

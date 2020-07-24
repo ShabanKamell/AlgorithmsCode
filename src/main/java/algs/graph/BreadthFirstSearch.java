@@ -1,6 +1,6 @@
 package algs.graph;
 
-import algs.util.Testable;
+import algs.shared.util.Testable;
 
 import java.util.LinkedList;
 

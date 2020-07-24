@@ -1,6 +1,6 @@
 package algs.search;
 
-import algs.util.Testable;
+import algs.shared.util.Testable;
 
 /**
  * Best: O(1) Average, Worst: O(log n)

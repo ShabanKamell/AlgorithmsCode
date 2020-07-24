@@ -27,12 +27,12 @@
  *
  ******************************************************************************/
 
-package algs.model;
+package algs.shared.model;
 
-import algs.datastructure.LinkedBag;
-import algs.datastructure.ResizingArrayBag;
-import algs.util.StdIn;
-import algs.util.StdOut;
+import algs.shared.datastructure.LinkedBag;
+import algs.shared.datastructure.ResizingArrayBag;
+import algs.shared.util.StdIn;
+import algs.shared.util.StdOut;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

@@ -32,12 +32,12 @@
 package algs.graph;
 
 
-import algs.datastructure.IndexMinPQ;
-import algs.datastructure.Stack;
-import algs.model.*;
-import algs.util.In;
-import algs.util.StdOut;
-import algs.util.Testable;
+import algs.shared.datastructure.IndexMinPQ;
+import algs.shared.datastructure.Stack;
+import algs.shared.model.*;
+import algs.shared.util.In;
+import algs.shared.util.StdOut;
+import algs.shared.util.Testable;
 
 import java.io.File;
 

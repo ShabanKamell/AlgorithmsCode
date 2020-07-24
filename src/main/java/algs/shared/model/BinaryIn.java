@@ -9,7 +9,7 @@
  *
  ******************************************************************************/
 
-package algs.model;
+package algs.shared.model;
 
 import java.io.*;
 import java.net.Socket;

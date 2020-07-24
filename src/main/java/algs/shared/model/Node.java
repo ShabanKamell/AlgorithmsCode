@@ -1,4 +1,4 @@
-package algs.model;
+package algs.shared.model;
 
 public class Node {
     public int key;

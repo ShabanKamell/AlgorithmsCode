@@ -1,7 +1,7 @@
 package algs.search.bst;
 
-import algs.model.Node;
-import algs.util.Testable;
+import algs.shared.model.Node;
+import algs.shared.util.Testable;
 
 /**
  * Best: O(1) Average, Worst: O(log n)

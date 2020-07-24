@@ -22,12 +22,12 @@
  *
  ******************************************************************************/
 
-package algs.model;
+package algs.shared.model;
 
-import algs.datastructure.Stack;
-import algs.util.In;
-import algs.util.StdOut;
-import algs.util.StdRandom;
+import algs.shared.datastructure.Stack;
+import algs.shared.util.In;
+import algs.shared.util.StdOut;
+import algs.shared.util.StdRandom;
 
 import java.util.NoSuchElementException;
 

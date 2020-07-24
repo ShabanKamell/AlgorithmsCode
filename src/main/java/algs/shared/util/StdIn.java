@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package algs.util;
+package algs.shared.util;
 
 import java.util.*;
 import java.util.regex.Pattern;
