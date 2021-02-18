@@ -10,19 +10,18 @@ import algs.search.bst.BinarySearchTree
 import algs.shared.util.Testable
 import algs.sort.*
 import java.util.*
-import java.util.function.Consumer
 
 object Main {
     @JvmStatic
     fun main(args: Array<String>) {
-        algorithms().forEach(Consumer { item: Testable ->
+        algorithms().forEach { item ->
             val name = item.javaClass.simpleName
             println()
             println(">>> $name")
             item.test()
             println("<<< $name")
             println()
-        })
+        }
     }
 
     private fun sortAlgorithms(): List<Testable> {
