@@ -8,10 +8,10 @@ import algs.shared.util.Testable;
  */
 public class AvlTree implements Testable {
     // Root of BST
-    private Node root;
+    private Node<Integer> root;
 
-    public Node search(int key) {
-        Node current = root;
+    public Node<Integer> search(int key) {
+        Node<Integer> current = root;
         while (current != null) {
             if (current.key == key) {
                 break;
@@ -29,7 +29,7 @@ public class AvlTree implements Testable {
         root = delete(root, key);
     }
 
-    public Node getRoot() {
+    public Node<Integer> getRoot() {
         return root;
     }
 
@@ -37,9 +37,9 @@ public class AvlTree implements Testable {
         return root == null ? -1 : root.height;
     }
 
-    private Node insert(Node node, int key) {
+    private Node<Integer> insert(Node<Integer> node, int key) {
         if (node == null)
-            return new Node(key);
+            return new Node<Integer>(key);
         else if (node.key > key)
             node.left = insert(node.left, key);
         else if (node.key < key)
@@ -50,7 +50,7 @@ public class AvlTree implements Testable {
         return reBalance(node);
     }
 
-    private Node delete(Node node, int key) {
+    private Node<Integer> delete(Node<Integer> node, int key) {
         if (node == null)
             return null;
         else if (node.key > key) {
@@ -61,7 +61,7 @@ public class AvlTree implements Testable {
             if (node.left == null || node.right == null) {
                 node = (node.left == null) ? node.right : node.left;
             } else {
-                Node mostLeftChild = mostLeftChild(node.right);
+                Node<Integer> mostLeftChild = mostLeftChild(node.right);
                 node.key = mostLeftChild.key;
                 node.right = delete(node.right, node.key);
             }
@@ -73,8 +73,8 @@ public class AvlTree implements Testable {
         return node;
     }
 
-    private Node mostLeftChild(Node node) {
-        Node current = node;
+    private Node<Integer> mostLeftChild(Node<Integer> node) {
+        Node<Integer> current = node;
         /* loop down to find the leftmost leaf */
         while (current.left != null) {
             current = current.left;
@@ -82,7 +82,7 @@ public class AvlTree implements Testable {
         return current;
     }
 
-    private Node reBalance(Node z) {
+    private Node<Integer> reBalance(Node<Integer> z) {
         updateHeight(z);
         int balance = getBalance(z);
         if (balance > 1) {
@@ -117,9 +117,9 @@ public class AvlTree implements Testable {
          \                /
           z              z
     */
-    private Node rotateRight(Node y) {
-        Node x = y.left;
-        Node z = x.right;
+    private Node<Integer> rotateRight(Node<Integer> y) {
+        Node<Integer> x = y.left;
+        Node<Integer> z = x.right;
 
         // Rotate
         x.right = y;
@@ -137,9 +137,9 @@ public class AvlTree implements Testable {
          /                   \
         z                     z
      */
-    private Node rotateLeft(Node y) {
-        Node x = y.right;
-        Node z = x.left;
+    private Node<Integer> rotateLeft(Node<Integer> y) {
+        Node<Integer> x = y.right;
+        Node<Integer> z = x.left;
 
         // Rotate
         x.left = y;
@@ -150,22 +150,22 @@ public class AvlTree implements Testable {
         return x;
     }
 
-    private void updateHeight(Node n) {
+    private void updateHeight(Node<Integer> n) {
         n.height = 1 + Math.max(height(n.left), height(n.right));
     }
 
-    private int height(Node n) {
+    private int height(Node<Integer> n) {
         return n == null ? -1 : n.height;
     }
 
-    public int getBalance(Node n) {
+    public int getBalance(Node<Integer> n) {
         return (n == null) ? 0 : height(n.right) - height(n.left);
     }
 
     // A utility function to print preorder traversal
     // of the tree.
     // The function also prints height of every node
-    void preOrder(Node node) {
+    void preOrder(Node<Integer> node) {
         if (node != null) {
             System.out.print(node.key + " ");
             preOrder(node.left);
@@ -173,7 +173,7 @@ public class AvlTree implements Testable {
         }
     }
 
-    private void inorder(Node root) {
+    private void inorder(Node<Integer> root) {
         if (root != null) {
             inorder(root.left);
             System.out.print(root.key + " ");

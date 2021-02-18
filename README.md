@@ -14,6 +14,10 @@ I use [IntelliJ IDEA CE](https://www.jetbrains.com/idea/). Of course you're free
 - [ ] [Algs4](https://github.com/kevin-wayne/algs4)
 - [ ] [Khan Academy's Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms)
 - [ ] [GeeksforGeeks](https://www.geeksforgeeks.org/)
+- [ ] [MIT 6.006 Introduction to Algorithms](https://www.youtube.com/watch?v=HtSuA80QTyo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb)
+- [ ] [MIT 6.046J Design and Analysis of Algorithms](https://www.youtube.com/watch?v=2P-yW7LQr08&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp)
+- [ ] [Baeldung Algorithms](https://github.com/eugenp/tutorials)
+
 
 ### 🛡 License
 <details>

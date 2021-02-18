@@ -8,7 +8,7 @@ import algs.shared.util.Testable;
  */
 public class BinarySearchTree implements Testable {
     // Root of BST
-    private Node root;
+    private Node<Integer> root;
 
     /**
       Create the following BST
@@ -79,10 +79,10 @@ public class BinarySearchTree implements Testable {
     /**
      * A recursive function to insert a new key in BST
      */
-    private Node insert(Node root, int key) {
+    private Node<Integer> insert(Node<Integer> root, int key) {
         // If the tree is empty, return a new node
         if (root == null) {
-            root = new Node(key);
+            root = new Node<Integer>(key);
             return root;
         }
 
@@ -99,7 +99,7 @@ public class BinarySearchTree implements Testable {
     /**
      * A utility function to algs.search a given key in BST
      */
-    private Node search(Node root, int key) {
+    private Node<Integer> search(Node<Integer> root, int key) {
         // Base Cases: root is null or key is present at root
         if (root == null || root.key == key)
             return root;
@@ -116,7 +116,7 @@ public class BinarySearchTree implements Testable {
         inorder(root);
    }
 
-   private void inorder(Node root) {
+   private void inorder(Node<Integer> root) {
         if (root != null) {
             inorder(root.left);
             System.out.print(root.key + " ");
@@ -132,7 +132,7 @@ public class BinarySearchTree implements Testable {
     /**
      * A recursive function to insert a new key in BST.
      */
-    Node delete(Node root, int key) {
+    Node<Integer> delete(Node<Integer> root, int key) {
         // Base Case: If the tree is empty
         if (root == null)  return null;
 
@@ -145,13 +145,13 @@ public class BinarySearchTree implements Testable {
             // If key is same as root's key, then This is the node
             // to be deleted
 
-            // Node with only one child or no child
+            // Node<Integer> with only one child or no child
             if (root.left == null)
                 return root.right;
             else if (root.right == null)
                 return root.left;
 
-            // Node with two children:
+            // Node<Integer> with two children:
 
             // 1- Get the inorder successor (smallest in the right subtree).
             // 2- Copy inorder successor to current node.
@@ -164,7 +164,7 @@ public class BinarySearchTree implements Testable {
         return root;
     }
 
-   private int minValue(Node root) {
+   private int minValue(Node<Integer> root) {
         int min = root.key;
         while (root.left != null) {
             min = root.left.key;
@@ -179,7 +179,7 @@ public class BinarySearchTree implements Testable {
 
     /* Returns true if given algs.search tree is binary
        algs.search tree (efficient version) */
-    private boolean isBST(Node node, Node prev) {
+    private boolean isBST(Node<Integer> node, Node<Integer> prev) {
         // traverse the tree in inorder fashion and
         // keep a track of previous node
         if (node == null)
@@ -204,7 +204,7 @@ public class BinarySearchTree implements Testable {
         else
             System.out.println("Not a BST");
 
-        Node result = search(root, 60);
+        Node<Integer> result = search(root, 60);
 
         if (result == null)
             System.out.println("Element not present");

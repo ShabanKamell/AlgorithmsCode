@@ -47,8 +47,8 @@ public class Main {
 
     private static List<Testable> graphAlgorithms() {
         List<Testable> list = new ArrayList<>();
-        list.add(new DepthFirstSearch());
-        list.add(new BreadthFirstSearch());
+        list.add(DepthFirstSearch.INSTANCE);
+        list.add(BreadthFirstSearch.INSTANCE);
         list.add(new DijkstraSP());
         return list;
     }

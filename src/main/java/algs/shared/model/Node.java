@@ -1,12 +1,12 @@
 package algs.shared.model;
 
-public class Node {
-    public int key;
+public class Node<T> {
+    public T key;
     public int height = -1;
-    public Node left;
-    public Node right;
+    public Node<T> left;
+    public Node<T> right;
 
-    public Node(int item) {
+    public Node(T item) {
         key = item;
         left = right = null;
     }
