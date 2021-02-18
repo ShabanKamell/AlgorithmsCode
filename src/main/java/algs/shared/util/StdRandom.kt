@@ -583,7 +583,7 @@ object StdRandom {
         if (args.size == 2) setSeed(args[1].toLong())
         val probabilities = doubleArrayOf(0.5, 0.3, 0.1, 0.1)
         val frequencies = intArrayOf(5, 3, 1, 1)
-        val a = "A B C D E F G".split(" ").toTypedArray()
+        val a: CharArray = charArrayOf('A', 'B', 'C', 'D', 'E', 'F', 'G')
         StdOut.println("seed = " + getSeed())
         for (i in 0 until n) {
             StdOut.printf("%2d ", uniform(100))

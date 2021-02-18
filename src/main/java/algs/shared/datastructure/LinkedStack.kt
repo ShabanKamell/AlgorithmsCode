@@ -42,14 +42,14 @@ import java.util.*
  * @author Kevin Wayne
  */
 class LinkedStack<Item> : Iterable<Item> {
-    private var n // size of the stack = 0
+    private var n = 0 // size of the stack = 0
     private var first // top of stack
             : Node? = null
 
     // helper linked list class
     private inner class Node {
-        val item: Item? = null
-        val next: Node? = null
+        var item: Item? = null
+        var next: Node? = null
     }
 
     /**
@@ -74,8 +74,8 @@ class LinkedStack<Item> : Iterable<Item> {
     fun push(item: Item) {
         val oldfirst = first
         first = Node()
-        first.item = item
-        first.next = oldfirst
+        first?.item = item
+        first?.next = oldfirst
         n++
         assert(check())
     }
@@ -87,7 +87,7 @@ class LinkedStack<Item> : Iterable<Item> {
      */
     fun pop(): Item {
         if (isEmpty) throw NoSuchElementException("Stack underflow")
-        val item: Item = first!!.item // save item to return
+        val item: Item = first!!.item!! // save item to return
         first = first!!.next // delete first node
         n--
         assert(check())
@@ -101,7 +101,7 @@ class LinkedStack<Item> : Iterable<Item> {
      */
     fun peek(): Item {
         if (isEmpty) throw NoSuchElementException("Stack underflow")
-        return first!!.item
+        return first!!.item!!
     }
 
     /**
@@ -135,7 +135,7 @@ class LinkedStack<Item> : Iterable<Item> {
 
         override fun next(): Item {
             if (!hasNext()) throw NoSuchElementException()
-            val item: Item = current!!.item
+            val item: Item = current!!.item!!
             current = current!!.next
             return item
         }
@@ -152,10 +152,10 @@ class LinkedStack<Item> : Iterable<Item> {
             if (first != null) return false
         } else if (n == 1) {
             if (first == null) return false
-            if (first.next != null) return false
+            if (first?.next != null) return false
         } else {
             if (first == null) return false
-            if (first.next == null) return false
+            if (first?.next == null) return false
         }
 
         // check internal consistency of instance variable n
@@ -177,7 +177,7 @@ class LinkedStack<Item> : Iterable<Item> {
         @JvmStatic
         fun main(args: Array<String>) {
             val stack = LinkedStack<String?>()
-            while (!StdIn.isEmpty()) {
+            while (!StdIn.isEmpty) {
                 val item = StdIn.readString()
                 if (item != "-") stack.push(item) else if (!stack.isEmpty) StdOut.print(stack.pop().toString() + " ")
             }

@@ -14,6 +14,7 @@ import java.io.*
 import java.net.Socket
 import java.net.URL
 import java.util.*
+import kotlin.experimental.*
 
 /**
  * *Binary input*. This class provides methods for reading
@@ -43,8 +44,8 @@ import java.util.*
 class BinaryIn {
     private var `in` // the input stream
             : BufferedInputStream? = null
-    private var buffer // one character buffer = 0
-    private var n // number of bits left in buffer = 0
+    private var buffer = 0 // one character buffer = 0
+    private var n = 0 // number of bits left in buffer = 0
 
     /**
      * Initializes a binary input stream from standard input.
@@ -246,12 +247,12 @@ class BinaryIn {
      * @return the next 16 bits of data from this binary input stream as a `short`
      * @throws NoSuchElementException if there are fewer than 16 bits available
      */
-    fun readShort(): Short {
-        var x: Short = 0
+    fun readShort(): Int {
+        var x: Int = 0
         for (i in 0..1) {
             val c = readChar()
             x = x shl 8
-            x = x or c.toShort()
+            x = x or c.toInt()
         }
         return x
     }

@@ -58,12 +58,12 @@ class Stack<Item>
     : Iterable<Item> {
     private var first // top of stack
             : Node<Item>? = null
-    private var n // size of the stack = 0
+    private var n = 0 // size of the stack = 0
 
     // helper linked list class
     private class Node<Item> {
-        val item: Item? = null
-        val next: Node<Item>? = null
+        var item: Item? = null
+        var next: Node<Item>? = null
     }
 
     /**
@@ -91,8 +91,8 @@ class Stack<Item>
     fun push(item: Item) {
         val oldfirst = first
         first = Node()
-        first.item = item
-        first.next = oldfirst
+        first?.item = item
+        first?.next = oldfirst
         n++
     }
 
@@ -104,7 +104,7 @@ class Stack<Item>
      */
     fun pop(): Item {
         if (isEmpty) throw NoSuchElementException("Stack underflow")
-        val item: Item = first!!.item // save item to return
+        val item: Item = first!!.item!! // save item to return
         first = first!!.next // delete first node
         n--
         return item // return the saved item
@@ -118,7 +118,7 @@ class Stack<Item>
      */
     fun peek(): Item {
         if (isEmpty) throw NoSuchElementException("Stack underflow")
-        return first!!.item
+        return first!!.item!!
     }
 
     /**
@@ -156,7 +156,7 @@ class Stack<Item>
 
         override fun next(): Item {
             if (!hasNext()) throw NoSuchElementException()
-            val item: Item = current!!.item
+            val item: Item = current!!.item!!
             current = current!!.next
             return item
         }
@@ -172,7 +172,7 @@ class Stack<Item>
         @JvmStatic
         fun main(args: Array<String>) {
             val stack = Stack<String?>()
-            while (!StdIn.isEmpty()) {
+            while (!StdIn.isEmpty) {
                 val item = StdIn.readString()
                 if (item != "-") stack.push(item) else if (!stack.isEmpty) StdOut.print(stack.pop().toString() + " ")
             }

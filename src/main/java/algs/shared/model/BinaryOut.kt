@@ -18,6 +18,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
 import java.net.Socket
+import kotlin.experimental.and
 
 /**
  * *Binary output*. This class provides methods for converting
@@ -40,8 +41,8 @@ import java.net.Socket
 class BinaryOut {
     private var out // the output stream
             : BufferedOutputStream? = null
-    private var buffer // 8-bit buffer of bits to write out = 0
-    private var n // number of bits remaining in buffer = 0
+    private var buffer = 0 // 8-bit buffer of bits to write out = 0
+    private var n = 0 // number of bits remaining in buffer = 0
 
     /**
      * Initializes a binary output stream from standard output.
@@ -174,7 +175,7 @@ class BinaryOut {
      * @param x the `byte` to write.
      */
     fun write(x: Byte) {
-        writeByte(x and 0xff)
+        writeByte(x.toInt() and 0xff)
     }
 
     /**
@@ -238,15 +239,6 @@ class BinaryOut {
      */
     fun write(x: Float) {
         write(java.lang.Float.floatToRawIntBits(x))
-    }
-
-    /**
-     * Write the 16-bit int to the binary output stream.
-     * @param x the `short` to write.
-     */
-    fun write(x: Short) {
-        writeByte(x ushr 8 and 0xff)
-        writeByte(x ushr 0 and 0xff)
     }
 
     /**

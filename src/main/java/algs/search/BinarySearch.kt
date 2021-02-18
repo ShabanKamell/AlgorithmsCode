@@ -7,7 +7,7 @@ import algs.shared.util.Testable
  */
 class BinarySearch : Testable {
     /**
-     * Returns index of x if it is present in arr[l..r], else return -1
+     * Returns index of x if it is present in arr{l..r}, else return -1
      */
     private fun search(arr: IntArray, l: Int, r: Int, x: Int): Int {
         if (r >= l) {

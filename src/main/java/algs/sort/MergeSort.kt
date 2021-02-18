@@ -8,7 +8,7 @@ import algs.shared.util.Testable
  */
 class MergeSort : Testable {
     /**
-     * algs.Main function that sorts arr[l..r] using
+     * algs.Main function that sorts arr{l..r} using
      * merge()
      */
     private fun sort(arr: IntArray, l: Int, r: Int) {
@@ -27,7 +27,7 @@ class MergeSort : Testable {
 
     /**
      * Merges two sub-arrays of arr[].
-     * First sub-array is arr[l..m]
+     * First sub-array is arr{l..m}
      * Second sub-array is arr[m+1..r]
      */
     private fun merge(arr: IntArray, l: Int, m: Int, r: Int) {

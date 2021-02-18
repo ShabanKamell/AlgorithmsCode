@@ -63,12 +63,12 @@ class Bag<Item>
     : Iterable<Item> {
     private var first // beginning of bag
             : Node<Item>? = null
-    private var n // number of elements in bag = 0
+    private var n = 0 // number of elements in bag = 0
 
     // helper linked list class
     private class Node<Item> {
-        val item: Item? = null
-        val next: Node<Item>? = null
+        var item: Item? = null
+        var next: Node<Item>? = null
     }
 
     /**
@@ -97,8 +97,8 @@ class Bag<Item>
     fun add(item: Item) {
         val oldFirst = first
         first = Node()
-        first.item = item
-        first.next = oldFirst
+        first?.item = item
+        first?.next = oldFirst
         n++
     }
 
@@ -123,7 +123,7 @@ class Bag<Item>
 
         override fun next(): Item {
             if (!hasNext()) throw NoSuchElementException()
-            val item: Item = current!!.item
+            val item: Item = current!!.item!!
             current = current!!.next
             return item
         }
@@ -139,7 +139,7 @@ class Bag<Item>
         @JvmStatic
         fun main(args: Array<String>) {
             val bag = Bag<String?>()
-            while (!StdIn.isEmpty()) {
+            while (!StdIn.isEmpty) {
                 val item = StdIn.readString()
                 bag.add(item)
             }

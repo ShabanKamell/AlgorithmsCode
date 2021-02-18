@@ -72,12 +72,12 @@ class ResizingArrayBag<Item> : Iterable<Item> {
      * Returns an iterator that iterates over the items in the bag in arbitrary order.
      * @return an iterator that iterates over the items in the bag in arbitrary order
      */
-    override fun iterator(): MutableIterator<Item> {
+    override fun iterator(): Iterator<Item> {
         return ArrayIterator()
     }
 
     // an iterator, doesn't implement remove() since it's optional
-    private inner class ArrayIterator : MutableIterator<Item?> {
+    private inner class ArrayIterator : MutableIterator<Item> {
         private var i = 0
         override fun hasNext(): Boolean {
             return i < n
@@ -87,9 +87,9 @@ class ResizingArrayBag<Item> : Iterable<Item> {
             throw UnsupportedOperationException()
         }
 
-        override fun next(): Item? {
+        override fun next(): Item {
             if (!hasNext()) throw NoSuchElementException()
-            return a[i++]
+            return a[i++]!!
         }
     }
 

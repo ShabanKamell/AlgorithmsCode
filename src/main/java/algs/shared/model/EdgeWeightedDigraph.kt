@@ -52,9 +52,9 @@ import java.util.*
 class EdgeWeightedDigraph {
     private val V // number of vertices in this digraph
             : Int
-    private var E // number of edges in this digraph = 0
+    private var E = 0 // number of edges in this digraph = 0
     private val adj // adj[v] = adjacency list for vertex v
-            : Array<Bag<DirectedEdge>>
+            : Array<Bag<DirectedEdge>?>
     private val indegree // indegree[v] = indegree of vertex v
             : IntArray
 
@@ -69,7 +69,7 @@ class EdgeWeightedDigraph {
         this.V = V
         E = 0
         indegree = IntArray(V)
-        adj = arrayOfNulls<Bag<*>>(V)
+        adj = arrayOfNulls(V)
         for (v in 0 until V) adj[v] = Bag<DirectedEdge>()
     }
 
@@ -110,9 +110,9 @@ class EdgeWeightedDigraph {
             V = `in`.readInt()
             require(V >= 0) { "number of vertices in a Digraph must be nonnegative" }
             indegree = IntArray(V)
-            adj = arrayOfNulls<Bag<*>>(V)
+            adj = arrayOfNulls(V)
             for (v in 0 until V) {
-                adj[v] = Bag<DirectedEdge>()
+                adj[v] = Bag()
             }
             val E = `in`.readInt()
             require(E >= 0) { "Number of edges must be nonnegative" }
@@ -140,11 +140,11 @@ class EdgeWeightedDigraph {
         for (v in 0 until G.V()) {
             // reverse so that adjacency list is in same order as original
             val reverse = Stack<DirectedEdge>()
-            for (e in G.adj[v]) {
-                reverse.push(e!!)
+            for (e in G.adj[v]!!) {
+                reverse.push(e)
             }
             for (e in reverse) {
-                adj[v].add(e!!)
+                adj[v]!!.add(e)
             }
         }
     }
@@ -184,7 +184,7 @@ class EdgeWeightedDigraph {
         val w = e.to()
         validateVertex(v)
         validateVertex(w)
-        adj[v].add(e)
+        adj[v]!!.add(e)
         indegree[w]++
         E++
     }
@@ -198,7 +198,7 @@ class EdgeWeightedDigraph {
      */
     fun adj(v: Int): Iterable<DirectedEdge> {
         validateVertex(v)
-        return adj[v]
+        return adj[v]!!
     }
 
     /**
@@ -211,7 +211,7 @@ class EdgeWeightedDigraph {
      */
     fun outdegree(v: Int): Int {
         validateVertex(v)
-        return adj[v].size()
+        return adj[v]!!.size()
     }
 
     /**
@@ -258,7 +258,7 @@ class EdgeWeightedDigraph {
                 .append(NEWLINE)
         for (v in 0 until V) {
             s.append(v).append(": ")
-            for (e in adj[v]) {
+            for (e in adj[v]!!) {
                 s.append(e).append("  ")
             }
             s.append(NEWLINE)

@@ -115,12 +115,12 @@ class ResizingArrayStack<Item> : Iterable<Item> {
      * Returns an iterator to this stack that iterates through the items in LIFO order.
      * @return an iterator to this stack that iterates through the items in LIFO order.
      */
-    override fun iterator(): MutableIterator<Item> {
+    override fun iterator(): Iterator<Item> {
         return ReverseArrayIterator()
     }
 
     // an iterator, doesn't implement remove() since it's optional
-    private inner class ReverseArrayIterator : MutableIterator<Item?> {
+    private inner class ReverseArrayIterator : MutableIterator<Item> {
         private var i: Int
         override fun hasNext(): Boolean {
             return i >= 0
@@ -130,9 +130,9 @@ class ResizingArrayStack<Item> : Iterable<Item> {
             throw UnsupportedOperationException()
         }
 
-        override fun next(): Item? {
+        override fun next(): Item {
             if (!hasNext()) throw NoSuchElementException()
-            return a[i--]
+            return a[i--]!!
         }
 
         init {
@@ -149,7 +149,7 @@ class ResizingArrayStack<Item> : Iterable<Item> {
         @JvmStatic
         fun main(args: Array<String>) {
             val stack = ResizingArrayStack<String?>()
-            while (!StdIn.isEmpty()) {
+            while (!StdIn.isEmpty) {
                 val item = StdIn.readString()
                 if (item != "-") stack.push(item) else if (!stack.isEmpty) StdOut.print(stack.pop().toString() + " ")
             }

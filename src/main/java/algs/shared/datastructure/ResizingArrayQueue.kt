@@ -118,12 +118,12 @@ class ResizingArrayQueue<Item> : Iterable<Item> {
      * Returns an iterator that iterates over the items in this queue in FIFO order.
      * @return an iterator that iterates over the items in this queue in FIFO order
      */
-    override fun iterator(): MutableIterator<Item> {
+    override fun iterator(): Iterator<Item> {
         return ArrayIterator()
     }
 
     // an iterator, doesn't implement remove() since it's optional
-    private inner class ArrayIterator : MutableIterator<Item?> {
+    private inner class ArrayIterator : MutableIterator<Item> {
         private var i = 0
         override fun hasNext(): Boolean {
             return i < n
@@ -133,11 +133,11 @@ class ResizingArrayQueue<Item> : Iterable<Item> {
             throw UnsupportedOperationException()
         }
 
-        override fun next(): Item? {
+        override fun next(): Item {
             if (!hasNext()) throw NoSuchElementException()
             val item = q[(i + first) % q.size]
             i++
-            return item
+            return item!!
         }
     }
 
@@ -150,7 +150,7 @@ class ResizingArrayQueue<Item> : Iterable<Item> {
         @JvmStatic
         fun main(args: Array<String>) {
             val queue = ResizingArrayQueue<String?>()
-            while (!StdIn.isEmpty()) {
+            while (!StdIn.isEmpty) {
                 val item = StdIn.readString()
                 if (item != "-") queue.enqueue(item) else if (!queue.isEmpty) StdOut.print(queue.dequeue().toString() + " ")
             }

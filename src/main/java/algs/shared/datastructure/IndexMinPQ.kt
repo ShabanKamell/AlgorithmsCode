@@ -248,7 +248,7 @@ class IndexMinPQ<Key : Comparable<Key>?>(maxN: Int) : Iterable<Int?> {
      * General helper functions.
      */
     private fun greater(i: Int, j: Int): Boolean {
-        return keys[pq[i]]!!.compareTo(keys[pq[j]]) > 0
+        return keys[pq[i]]!! > keys[pq[j]]!!
     }
 
     private fun exch(i: Int, j: Int) {
@@ -296,7 +296,7 @@ class IndexMinPQ<Key : Comparable<Key>?>(maxN: Int) : Iterable<Int?> {
 
     private inner class HeapIterator : MutableIterator<Int> {
         // create a new pq
-        private val copy: IndexMinPQ<Key?>
+        private val copy: IndexMinPQ<Key> = IndexMinPQ(pq.size - 1)
         override fun hasNext(): Boolean {
             return !copy.isEmpty
         }
@@ -313,8 +313,7 @@ class IndexMinPQ<Key : Comparable<Key>?>(maxN: Int) : Iterable<Int?> {
         // add all elements to copy of heap
         // takes linear time since already in heap order so no keys move
         init {
-            copy = IndexMinPQ<Key?>(pq.size - 1)
-            for (i in 1..n) copy.insert(pq[i], keys[pq[i]])
+            for (i in 1..n) copy.insert(pq[i], keys[pq[i]]!!)
         }
     }
 

@@ -66,9 +66,9 @@ class EdgeWeightedDirectedCycle(G: EdgeWeightedDigraph) {
             } else if (onStack[w]) {
                 cycle = Stack()
                 var f = e
-                while (f!!.from() != w) {
+                while (f.from() != w) {
                     cycle!!.push(f)
-                    f = edgeTo[f.from()]
+                    f = edgeTo[f.from()]!!
                 }
                 cycle!!.push(f)
                 return

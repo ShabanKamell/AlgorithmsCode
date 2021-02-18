@@ -38,6 +38,7 @@ import algs.shared.util.In
 import algs.shared.util.StdOut
 import algs.shared.util.Testable
 import java.io.File
+import java.lang.Double.POSITIVE_INFINITY
 
 /**
  * The `DijkstraSP` class represents a data type for solving the
@@ -64,10 +65,10 @@ import java.io.File
  * @author Kevin Wayne
  */
 class DijkstraSP : Testable {
-    private var distTo // distTo[v] = distance  of shortest s->v path
-            : DoubleArray
-    private var edgeTo // edgeTo[v] = last edge on shortest s->v path
-            : Array<DirectedEdge>
+    // distTo[v] = distance  of shortest s->v path
+    private var distTo: DoubleArray = DoubleArray(0)
+    // edgeTo[v] = last edge on shortest s->v path
+    private var edgeTo: Array<DirectedEdge?> = emptyArray()
     private var pq // priority queue of vertices
             : IndexMinPQ<Double>? = null
 
@@ -91,11 +92,11 @@ class DijkstraSP : Testable {
 
     private fun setup(G: EdgeWeightedDigraph, s: Int) {
         for (e in G.edges()) {
-            require(e!!.weight() >= 0) { "edge $e has negative weight" }
+            require(e.weight() >= 0) { "edge $e has negative weight" }
         }
         val V = G.V()
         distTo = DoubleArray(V)
-        edgeTo = arrayOfNulls(V)
+        edgeTo = arrayOfNulls<DirectedEdge>(V)
         validateVertex(s)
         for (v in 0 until V) distTo[v] = POSITIVE_INFINITY
         distTo[s] = 0.0
@@ -103,9 +104,9 @@ class DijkstraSP : Testable {
         // relax vertices in order of distance from s
         pq = IndexMinPQ(V)
         pq!!.insert(s, distTo[s])
-        while (!pq.isEmpty()) {
+        while (!pq!!.isEmpty) {
             val v = pq!!.delMin()
-            for (e in G.adj(v)) relax(e!!)
+            for (e in G.adj(v)) relax(e)
         }
         assert(check(G, s))
     }
@@ -206,7 +207,7 @@ class DijkstraSP : Testable {
         for (w in 0 until G.V()) {
             if (edgeTo[w] == null) continue
             val e = edgeTo[w]
-            val v = e.from()
+            val v = e!!.from()
             if (w != e.to()) return false
             if (distTo[v] + e.weight() != distTo[w]) {
                 System.err.println("edge $e on shortest path not tight")
