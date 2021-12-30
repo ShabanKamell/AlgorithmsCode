@@ -12,7 +12,7 @@ import java.util.*
  */
 object BreadthFirstSearch : Testable {
 
-    fun <T> search(value: T, root: Tree<T>): Tree<T>? {
+    private fun <T> search(value: T, root: Tree<T>): Tree<T>? {
         val queue: Queue<Tree<T>> = ArrayDeque()
         queue.add(root)
         var currentNode: Tree<T>
@@ -29,7 +29,7 @@ object BreadthFirstSearch : Testable {
         return null
     }
 
-    fun <T> search(value: T, start: Node<T>): Node<T>? {
+    private fun <T> search(value: T, start: Node<T>): Node<T>? {
         val queue: Queue<Node<T>> = ArrayDeque()
         queue.add(start)
         var currentNode: Node<T>
@@ -100,5 +100,18 @@ class Node<T>(val value: T) {
 
     init {
         neighbors = HashSet()
+    }
+}
+
+
+object Combinatorics {
+    // https://www.geeksforgeeks.org/centered-pentagonal-number/?ref=lbp
+    fun CombinatoricsChallenge(num: Int): Int {
+        return ( 5 * num * num - 5 * num + 2) / 2
+    }
+
+    @JvmStatic
+    fun main(args: Array<String>) {
+        println(CombinatoricsChallenge(8))
     }
 }
