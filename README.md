@@ -8,6 +8,7 @@ I use [IntelliJ IDEA CE](https://www.jetbrains.com/idea/). Of course you're free
  or others.
  
 ## Credit
+- [ ] [Grokking Algorithms](https://www.manning.com/books/grokking-algorithms)
 - [ ] [Algorithms in a Nutshell](http://shop.oreilly.com/product/9780596516246.do)
 - [ ] [Introduction to Algorithms](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844)
 - [ ] [Coursera's Algorithms (2 parts)](https://www.coursera.org/learn/algorithms-part1)
